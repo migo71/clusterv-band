@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Cluster V - Modern Jazz Quartett aus Deutschland. Victor (Bass), Volker (Keys), Michael (Sax) und Julius (Drums)."
+    />
+    <meta
+      name="keywords"
+      content="Cluster V, Jazz Band, Modern Jazz, Jazz Quartett, Live Musik"
+    />
+    <meta name="author" content="Cluster V" />
+    <meta property="og:title" content="Cluster V | Jazz Band" />
+    <meta property="og:image" content="clusterv_band.webp" />
+    <meta property="og:url" content="https://www.clusterv.de" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Cluster V" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#050a14" />
+    <link rel="canonical" href="https://www.clusterv.de" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="preload" as="image" href="clusterv_band.webp" />
+
+    <title>Cluster V | Jazz Band</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "MusicGroup",
+        "name": "Cluster V",
+        "genre": "Jazz, Jazzrock, Funk, Latin",
+        "member": [
+          { "@type": "Person", "name": "Michael Gößler" },
+          { "@type": "Person", "name": "Volker Kress" },
+          { "@type": "Person", "name": "Victor Xiberg" },
+          { "@type": "Person", "name": "Julius Constanza" }
+        ],
+        "description": "Modern Jazz Quartett mit Einflüssen aus Jazzrock, Funk und Latin."
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a
+          href="#hero"
+          class="logo"
+          style="text-decoration: none; color: inherit"
+          >Cluster V</a
+        >
+        <div
+          class="menu-toggle"
+          aria-label="Menü öffnen"
+          role="button"
+          tabindex="0"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#about">Band</a></li>
+          <li><a href="#video">Video</a></li>
+          <li><a href="#audio">Audio</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#gigs">Termine</a></li>
+          <li><a href="#presse">Presse</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="hero" class="fullscreen-section">
+      <div class="hero-content reveal">
+        <h1>Cluster V</h1>
+        <p class="hero-subtitle2">
+          Groovender Jazz-Latin-Funk voller Energie und Spielfreude
+        </p>
+      </div>
+      <div class="audio-control">
+        <button id="musicToggle" aria-label="Musik abspielen/pausieren">
+          <span>♫</span> Take me to the moon
+        </button>
+        <audio id="bgMusic" src="moonboots.mp3" loop preload="none"></audio>
+      </div>
+      <div
+        class="scroll-indicator"
+        data-target="about"
+        aria-label="Nach unten scrollen"
+      >
+        <span></span>
+      </div>
+    </section>
+
+    <section id="about" class="container fullscreen-section">
+      <h2>Über uns</h2>
+      <div class="section-content reveal">
+        <!-- Dynamischer Inhalt aus beschreibung.html -->
+        <div id="content-beschreibung" class="description-text">
+          Lade Beschreibung...
+        </div>
+
+        <div class="members">
+          <div class="member">
+            <img
+              src="galerie/Victor-1.jpg"
+              alt="Victor Xiberg, Bassist von Cluster V"
+              class="member-photo"
+              loading="lazy"
+              width="300"
+              height="300"
+            />
+            <strong>Victor Xiberg</strong> <small>(Bass)</small>
+          </div>
+          <div class="member">
+            <img
+              src="galerie/Volker-2.jpg"
+              alt="Volker Kress, Keyboarder von Cluster V"
+              class="member-photo"
+              loading="lazy"
+              width="300"
+              height="300"
+            />
+            <strong>Volker Kress</strong> <small>(Keys)</small>
+          </div>
+          <div class="member">
+            <img
+              src="galerie/Michael-3.jpg"
+              alt="Michael Gößler, Saxophonist von Cluster V"
+              class="member-photo"
+              loading="lazy"
+              width="300"
+              height="300"
+            />
+            <strong>Michael Gößler</strong> <small>(Sax)</small>
+          </div>
+          <div class="member">
+            <div
+              class="member-photo placeholder"
+              role="img"
+              aria-label="Julius Constanza, Schlagzeuger von Cluster V (Foto folgt)"
+            ></div>
+            <strong>Julius Constanza</strong> <small>(Drums)</small>
+          </div>
+        </div>
+      </div>
+      <div
+        class="scroll-indicator up"
+        data-target="hero"
+        aria-label="Nach oben scrollen"
+      >
+        <span></span>
+      </div>
+      <div
+        class="scroll-indicator"
+        data-target="video"
+        aria-label="Nach unten scrollen"
+      >
+        <span></span>
+      </div>
+    </section>
+
+    <section id="video" class="container fullscreen-section">
+      <h2>Video</h2>
+      <div class="section-content reveal">
+        <div id="content-video">Lade Video...</div>
+        <div class="video-fallback-message">
+          <p>
+            YouTube ist in Ihrem aktuellen Netzwerk (z. B. Firmen-Firewall)
+            scheinbar nicht erreichbar.
+          </p>
+          <p>
+            Sie können unsere Videos alternativ direkt auf
+            <a
+              href="https://www.youtube.com/@ClusterV"
+              target="_blank"
+              rel="noopener"
+              >unserem YouTube-Kanal</a
+            >
+            ansehen.
+          </p>
+        </div>
+      </div>
+      <div
+        class="scroll-indicator up"
+        data-target="about"
+        aria-label="Nach oben scrollen"
+      >
+        <span></span>
+      </div>
+      <div
+        class="scroll-indicator"
+        data-target="audio"
+        aria-label="Nach unten scrollen"
+      >
+        <span></span>
+      </div>
+    </section>
+
+    <section id="audio" class="container fullscreen-section">
+      <h2>Audio</h2>
+      <div class="section-content reveal">
+        <div id="content-audio">Lade Audio...</div>
+      </div>
+      <div
+        class="scroll-indicator up"
+        data-target="video"
+        aria-label="Nach oben scrollen"
+      >
+        <span></span>
+      </div>
+      <div
+        class="scroll-indicator"
+        data-target="galerie"
+        aria-label="Nach unten scrollen"
+      >
+        <span></span>
+      </div>
+    </section>
+
+    <section id="galerie" class="container fullscreen-section">
+      <h2>Galerie</h2>
+      <div class="section-content reveal">
+        <div id="content-galerie">In Kürze verfügbar...</div>
+      </div>
+      <div
+        class="scroll-indicator up"
+        data-target="audio"
+        aria-label="Nach oben scrollen"
+      >
+        <span></span>
+      </div>
+      <div
+        class="scroll-indicator"
+        data-target="gigs"
+        aria-label="Nach unten scrollen"
+      >
+        <span></span>
+      </div>
+    </section>
+
+    <section id="gigs" class="container fullscreen-section">
+      <h2>Termine</h2>
+      <div class="section-content reveal">
+        <!-- Dynamischer Inhalt aus termine.html -->
+        <div id="content-termine">Lade Termine...</div>
+      </div>
+      <div
+        class="scroll-indicator up"
+        data-target="galerie"
+        aria-label="Nach oben scrollen"
+      >
+        <span></span>
+      </div>
+      <div
+        class="scroll-indicator"
+        data-target="presse"
+        aria-label="Nach unten scrollen"
+      >
+        <span></span>
+      </div>
+    </section>
+
+    <section id="presse" class="container fullscreen-section">
+      <h2>Presse</h2>
+      <div class="section-content reveal">
+        <!-- Dynamischer Inhalt aus presse.html -->
+        <div id="content-presse">Lade Presseberichte...</div>
+      </div>
+      <div
+        class="scroll-indicator up"
+        data-target="gigs"
+        aria-label="Nach oben scrollen"
+      >
+        <span></span>
+      </div>
+      <div
+        class="scroll-indicator"
+        data-target="contact"
+        aria-label="Nach unten scrollen"
+      >
+        <span></span>
+      </div>
+    </section>
+
+    <section id="contact" class="container fullscreen-section">
+      <div class="reveal">
+        <h2>Kontakt</h2>
+        <p>Du möchstest uns engagieren oder Infos zu Auftritten?</p>
+        <p>Schreib uns direkt per E-Mail:</p>
+        <a href="mailto:clusterV.band@gmail.com" class="btn"
+          >clusterV.band@gmail.com</a
+        >
+      </div>
+      <div
+        class="scroll-indicator up"
+        data-target="presse"
+        aria-label="Nach oben scrollen"
+      >
+        <span></span>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        &copy; <span id="currentYear">2024</span> Cluster V |
+        <a href="http://www.clusterv.de">www.clusterv.de</a>
+      </p>     
+    </footer>
+
+    <button id="backToTopBtn" title="Zurück nach oben">↑</button>
+
+    <!-- Modal für die vergrößerte Anzeige von Pressebildern -->
+    <div id="imageModal" class="modal" aria-hidden="true" role="dialog">
+      <span class="close-modal" aria-label="Schließen">&times;</span>
+      <img
+        class="modal-content"
+        id="modalImg"
+        alt="Vergrößerte Presseansicht"
+      />
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

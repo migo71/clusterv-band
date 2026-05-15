@@ -1,0 +1,176 @@
+[
+  {
+    "date": "2026-07-25",
+    "city": "Heidelberg",
+    "location": "Taeter Theater",
+    "time": "20:00 Uhr"
+  },
+  {
+    "date": "2025-11-07",
+    "city": "Ladenburg",
+    "location": "Kulturwerkstatt",
+    "time": "20:00 Uhr"
+  },
+  {
+    "date": "2025-07-03",
+    "city": "Heidelberg",
+    "location": "Bett und Couch",
+    "time": "19:30 Uhr"
+  },
+  {
+    "date": "2025-05-24",
+    "city": "Mannheim",
+    "location": "Bar Abend, Ella & Louis",
+    "time": "20:00 - 23:00 Uhr"
+  },
+  {
+    "date": "2024-07-13",
+    "city": "Heidelberg",
+    "location": "Taeter Theater",
+    "time": "20:00 Uhr"
+  },
+  {
+    "date": "2024-06-30",
+    "city": "Heidelberg",
+    "location": "Römerbad",
+    "time": "17:30 - 20:00 Uhr"
+  },
+  {
+    "date": "2024-01-27",
+    "city": "Mannheim",
+    "location": "Bar Abend, Ella & Louis",
+    "time": "20:00 - 23:00 Uhr"
+  },
+  {
+    "date": "2023-09-08",
+    "city": "Mannheim",
+    "location": "GREEN TALENTS FESTIVAL (Buga)",
+    "time": ""
+  },
+  {
+    "date": "2023-06-30",
+    "city": "Schwetzingen",
+    "location": "Schloßplatzkonzert (Jazz Initiative)",
+    "time": ""
+  },
+  {
+    "date": "2023-06-24",
+    "city": "Ladenburg",
+    "location": "Waldpark (Benefiz Proyecto Tapé)",
+    "time": ""
+  },
+  {
+    "date": "2023-06-21",
+    "city": "Dossenheim",
+    "location": "Fête de la musique (Bahnhofsplatz)",
+    "time": ""
+  },
+  {
+    "date": "2023-04-14",
+    "city": "Ladenburg",
+    "location": "Heimatrock",
+    "time": "19:30 Uhr"
+  },
+  {
+    "date": "2022-09-24",
+    "city": "Groß-Rohrheim",
+    "location": "Jazzparty evang. Kirche",
+    "time": ""
+  },
+  {
+    "date": "2022-07-15",
+    "city": "Heidelberg",
+    "location": "Römerbad",
+    "time": "ab 19:30 Uhr"
+  },
+  {
+    "date": "2022-06-21",
+    "city": "Dossenheim",
+    "location": "Fête de la musique (Bahnhofsplatz)",
+    "time": ""
+  },
+  {
+    "date": "2022-05-26",
+    "city": "Dossenheim",
+    "location": "Wohnzimmerkonzert, Haus der Musik",
+    "time": ""
+  },
+  {
+    "date": "2022-04-28",
+    "city": "Walldorf",
+    "location": "Café Art Jazz Night (Swingin WiWa)",
+    "time": ""
+  },
+  {
+    "date": "2021-09-23",
+    "city": "Walldorf",
+    "location": "Café Art Jazz Night",
+    "time": ""
+  },
+  {
+    "date": "2021-09-10",
+    "city": "Schwetzingen",
+    "location": "Schloßplatzkonzert",
+    "time": ""
+  },
+  {
+    "date": "2021-06-21",
+    "city": "Dossenheim",
+    "location": "Fête de la musique (Bahnhofsplatz)",
+    "time": ""
+  },
+  {
+    "date": "2019-12-08",
+    "city": "Groß-Rohrheim",
+    "location": "Advent Jazz, Evangelische Kirche",
+    "time": ""
+  },
+  {
+    "date": "2019-05-12",
+    "city": "Ladenburg",
+    "location": "Waldpark (Benefiz Proyecto Tapé)",
+    "time": ""
+  },
+  {
+    "date": "2019-03-21",
+    "city": "Walldorf",
+    "location": "Cafe Art Jazz Night",
+    "time": ""
+  },
+  {
+    "date": "2018-08-31",
+    "city": "Biblis-Wattenheim",
+    "location": "Kulturscheune",
+    "time": ""
+  },
+  {
+    "date": "2018-07-08",
+    "city": "Biblis-Wattenheim",
+    "location": "Kulturscheune",
+    "time": ""
+  },
+  {
+    "date": "2018-05-03",
+    "city": "Walldorf",
+    "location": "JamSession (Harry's dine.drink.music)",
+    "time": ""
+  },
+  {
+    "date": "2018-03-03",
+    "city": "Heidelberg",
+    "location": "Private Feier",
+    "time": ""
+  },
+  {
+    "date": "2018-02-08",
+    "city": "Walldorf",
+    "location": "JamSession (Harry's dine.drink.music)",
+    "time": ""
+  },
+  {
+    "date": "2017-07-17",
+    "city": "-",
+    "location": "Bandgründung",
+    "time": ""
+  }
+]

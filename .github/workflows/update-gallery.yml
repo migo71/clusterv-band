@@ -1,0 +1,27 @@
+name: Auto Update Galerie JSON
+
+on:
+  push:
+    paths:
+      - 'galerie/**'
+  workflow_dispatch: # Macht den Workflow im Actions-Tab sichtbar und manuell startbar
+
+jobs:
+  update-json:
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: node generate-gallery.js
+      - name: Commit and Push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add galerie.json
+          git diff-index --quiet HEAD || (git commit -m "chore: auto-update galerie.json" && git push)
