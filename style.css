@@ -521,11 +521,12 @@ footer { padding: 60px; text-align: center; color: var(--text-muted); font-size:
     }
     .fullscreen-section { 
         background-attachment: scroll; /* Verhindert Darstellungsfehler auf Mobilgeräten */
-        background-size: cover; /* Füllt die Sektion proportional aus, ohne das Bild zu verzerren */
-        background-position: center center; /* Zentriert das Bild, damit die Musiker im Fokus bleiben */
+        background-size: 100% auto; /* Zeigt die komplette Breite der Band ohne Beschnitt */
+        background-position: top center; /* Richtet das Bild am oberen Rand aus */
         background-repeat: no-repeat;
         background-color: var(--dark-blue); /* Füllt den Rest der Sektion mit der Hintergrundfarbe */
-        min-height: 100vh; /* Behält den Fullscreen-Look auch auf Mobilgeräten bei */
+        min-height: auto; /* Erlaubt der Sektion, bei viel Text länger zu werden, ohne das Bild zu verzerren */
+        padding-top: 100px; /* Schafft Platz oben, damit der Text nicht die Gesichter überlagert */
     }
 
     .audio-control { 
