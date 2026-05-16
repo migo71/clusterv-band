@@ -261,10 +261,18 @@ section.active > .scroll-indicator {
 
 /* Sektions-Hintergründe */
 /* Zentrale Steuerung des Band-Hintergrundbildes für alle Sektionen */
-#hero, #about, #video, #audio, #galerie, #gigs, #presse, #contact {
+#about, #video, #audio, #galerie, #gigs, #presse, #contact {
     background-image: linear-gradient(var(--bg-overlay), var(--bg-overlay)), url('clusterv_band.webp');
     background-position: center;
     background-repeat: no-repeat;
+}
+
+/* Hero-Sektion: Heller und klarer Fokus auf das Bild */
+#hero {
+    background-image: linear-gradient(rgba(5, 10, 20, 0.3), rgba(5, 10, 20, 0.3)), url('clusterv_band.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .description-text { 
@@ -559,17 +567,19 @@ footer { padding: 60px; text-align: center; color: var(--text-muted); font-size:
         padding: 40px 5%;
     }
 
-    /* Diese Selektoren überschreiben die globalen ID-Styles (Spezifität) */
+    /* Mobile Ansicht: Fokus auf Atmosphäre und Lesbarkeit */
     #hero, #about, #video, #audio, #galerie, #gigs, #presse, #contact {
         background-attachment: scroll !important; 
-        background-size: 100% auto !important; /* Die volle Breite wird erzwungen */
-        background-position: center 60px !important; /* Schiebt das Bild unter den Header */
-        background-repeat: no-repeat;
-        background-image: url('clusterv_band.webp') !important; /* Entfernt den dunklen Overlay auf Mobile */
-        min-height: auto; /* Die Sektion passt sich nun dem Inhalt an */
-        display: block; /* Hebt das Flex-Zentrieren auf, damit Text unter das Bild wandert */
-        padding-top: calc(70vw + 60px); /* Platz für Bild (proportional) + Header-Abstand */
-        padding-bottom: 60px;
+        background-size: cover !important; /* Erzeugt den gewünschten "Ausschnitt" (füllt Screen) */
+        background-position: center center !important;
+        min-height: 100vh; /* Fullscreen-Gefühl zurück */
+        display: flex; /* Zentrierung des Inhalts wieder aktivieren */
+        padding-top: 100px;
+    }
+
+    #hero {
+        /* Im Hero-Bereich auch mobil etwas heller bleiben */
+        background-image: linear-gradient(rgba(5, 10, 20, 0.2), rgba(5, 10, 20, 0.2)), url('clusterv_band.webp') !important;
     }
 
     .audio-control { 
