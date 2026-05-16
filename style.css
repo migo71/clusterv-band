@@ -626,6 +626,11 @@ footer { padding: 60px; text-align: center; color: var(--text-muted); font-size:
         padding: 40px 5%;
     }
 
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* Erzwingt zwei Spalten auf Mobile */
+        gap: 10px; /* Etwas schmalere Abstände */
+    }
+
     /* Mobile Ansicht: Fokus auf Atmosphäre und Lesbarkeit */
     #hero, #about, #video, #audio, #galerie, #gigs, #presse, #contact {
         background-attachment: scroll !important; 
