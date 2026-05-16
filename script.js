@@ -193,47 +193,57 @@ window.openImageModal = openImageModal;
  * Initialisiert Scroll-Animationen und die aktive Navigation
  */
 function initScrollAnimations() {
-    const navLinks = document.querySelectorAll('.nav-links a');
+    const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
     
-    const observer = new IntersectionObserver((entries) => {
+    // Observer für Reveal-Elemente: Stoppt die Beobachtung nach der ersten Aktivierung (spart Performance)
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                
-                // Update Nav Links
-                if (entry.target.tagName === 'SECTION') {
-                    const id = entry.target.getAttribute('id');
-                    navLinks.forEach(link => {
-                        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-                    });
-                }
-            } else if (entry.target.tagName === 'SECTION') {
-                // Entfernt die active-Klasse beim Verlassen der Sektion für die Pfeile
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    // Separater Observer für Sektionen zur Steuerung der Nav-Links und Pfeile
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                const id = entry.target.getAttribute('id');
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                });
+            } else {
                 entry.target.classList.remove('active');
             }
         });
-    }, { threshold: 0.2, rootMargin: "-10% 0px -10% 0px" });
+    }, { threshold: 0.4 });
 
-    document.querySelectorAll('.reveal').forEach(el => {
-        observer.observe(el);
-    });
-    document.querySelectorAll('section').forEach(section => {
-        observer.observe(section);
-    });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    document.querySelectorAll('section').forEach(section => sectionObserver.observe(section));
 }
 
 /**
- * Steuert das Erscheinungsbild des Headers beim Scrollen
+ * Steuert das Erscheinungsbild des Headers beim Scrollen (gedrosselt via rAF)
  */
 function initHeaderScroll() {
     const header = document.querySelector('header');
+    let ticking = false;
+
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 80) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                if (window.scrollY > 80) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                ticking = false;
+            });
+            ticking = true;
         }
-    });
+    }, { passive: true });
 }
 
 document.addEventListener("DOMContentLoaded", () => {

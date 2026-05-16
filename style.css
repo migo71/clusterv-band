@@ -247,7 +247,7 @@ section.active > .scroll-indicator {
     width: 100%;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: scroll;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
@@ -257,9 +257,11 @@ section.active > .scroll-indicator {
     position: relative;
     scroll-snap-align: start;
     scroll-snap-stop: always;
-    /* Performance: Browser rendert Sektionen erst bei Bedarf */
-    content-visibility: auto;
+    /* content-visibility kann bei Smooth-Scroll zu Rucklern führen, 
+       daher für stabilere Navigation auf visible gesetzt */
+    content-visibility: visible;
     contain-intrinsic-size: 100vh;
+    will-change: transform;
     padding-top: 60px; /* Reduziert, damit die Überschrift weiter oben steht */
 }
 
@@ -543,7 +545,7 @@ footer { padding: 60px; text-align: center; color: var(--text-muted); font-size:
 .social-links a svg { width: 24px; height: 24px; fill: var(--text-muted); transition: all 0.3s ease; }
 .social-links a:hover svg { fill: var(--accent-gold); transform: scale(1.1); }
 
-.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; will-change: transform, opacity; }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
 @media (max-width: 768px) {
