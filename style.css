@@ -311,11 +311,20 @@ section.active > .scroll-indicator {
     border-radius: 8px;
     border: 1px solid var(--accent-gold);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    background-color: var(--navy-medium); /* Platzhalter-Farbe */
+    background-image: linear-gradient(45deg, var(--navy-medium) 25%, var(--navy-border) 50%, var(--navy-medium) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite linear;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
     pointer-events: none;
     z-index: 10;
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
 }
 
 /* Stil für den Platzhalter (wenn kein Bild vorhanden ist) */
@@ -415,6 +424,19 @@ section.active > .scroll-indicator {
     border: 1px solid rgba(197, 160, 89, 0.2);
     aspect-ratio: 1 / 1;
     background: var(--navy-medium);
+    position: relative;
+}
+
+.gallery-item::before {
+    content: 'CV';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--accent-gold);
+    opacity: 0.2;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
 }
 
 .gallery-item img {
@@ -422,6 +444,9 @@ section.active > .scroll-indicator {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
+    position: relative;
+    z-index: 1;
+    background: var(--navy-medium); /* Verdeckt das 'CV' sobald geladen */
 }
 
 .gallery-item:hover img {
