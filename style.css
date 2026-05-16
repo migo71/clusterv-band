@@ -519,14 +519,13 @@ footer { padding: 60px; text-align: center; color: var(--text-muted); font-size:
     .container {
         padding: 40px 5%;
     }
-    .fullscreen-section { 
-        background-attachment: scroll; /* Verhindert Darstellungsfehler auf Mobilgeräten */
-        background-size: 100% auto; /* Zeigt die komplette Breite der Band ohne Beschnitt */
-        background-position: top center; /* Richtet das Bild am oberen Rand aus */
-        background-repeat: no-repeat;
-        background-color: var(--dark-blue); /* Füllt den Rest der Sektion mit der Hintergrundfarbe */
-        min-height: auto; /* Erlaubt der Sektion, bei viel Text länger zu werden, ohne das Bild zu verzerren */
-        padding-top: 100px; /* Schafft Platz oben, damit der Text nicht die Gesichter überlagert */
+
+    /* Diese Selektoren überschreiben die globalen ID-Styles (Spezifität) */
+    #hero, #about, #video, #audio, #galerie, #gigs, #presse, #contact {
+        background-attachment: scroll; /* Wichtig für Mobile-Performance */
+        background-size: cover; /* Bild füllt die gesamte Fläche proportional aus */
+        background-position: center 25%; /* Zentriert horizontal, zeigt vertikal das obere Viertel (Köpfe) */
+        min-height: 100vh; /* Behält den Fullscreen-Look bei */
     }
 
     .audio-control { 
