@@ -17,7 +17,7 @@
 
 html {
     /* Verhindert, dass der fixed Header die Überschrift beim Scrollen überdeckt */
-    scroll-padding-top: 100px;
+    scroll-padding-top: 70px; /* Reduziert, um exakter mit der Header-Höhe abzuschließen */
     scroll-behavior: smooth;
 }
 
@@ -251,7 +251,7 @@ section.active > .scroll-indicator {
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Inhalt oben ausrichten statt zentrieren */
     align-items: center;
     text-align: center;
     position: relative;
@@ -260,6 +260,7 @@ section.active > .scroll-indicator {
     /* Performance: Browser rendert Sektionen erst bei Bedarf */
     content-visibility: auto;
     contain-intrinsic-size: 100vh;
+    padding-top: 60px; /* Reduziert, damit die Überschrift weiter oben steht */
 }
 
 /* Sektions-Hintergründe */
@@ -604,8 +605,9 @@ footer { padding: 60px; text-align: center; color: var(--text-muted); font-size:
         background-size: cover !important; /* Erzeugt den gewünschten "Ausschnitt" (füllt Screen) */
         background-position: center center !important;
         min-height: 100vh; /* Fullscreen-Gefühl zurück */
-        display: flex; /* Zentrierung des Inhalts wieder aktivieren */
-        padding-top: 100px;
+        display: flex;
+        justify-content: flex-start !important; /* Auch mobil oben ausrichten */
+        padding-top: 80px; /* Etwas weniger Abstand auf Mobile für direkten Fokus */
     }
 
     #hero {
