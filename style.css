@@ -594,18 +594,26 @@ footer { padding: 60px; text-align: center; color: var(--text-muted); font-size:
         width: 100%;
         background: var(--dark-blue); 
         padding: 0 20px; 
-        max-height: 0; 
+        max-height: 0;
+        visibility: hidden; 
         opacity: 0; 
         overflow: hidden; 
         transition: 0.4s;
     }
     .nav-links.active { 
-        max-height: 300px; 
+        max-height: 450px; 
+        visibility: visible;
         opacity: 1; 
         padding: 20px; 
     }
-    .nav-links li { 
-        margin: 15px 0; 
+    .nav-links li {
+        margin: 0;
+        border-bottom: 1px solid rgba(197, 160, 89, 0.1);
+    }
+    .nav-links a {
+        display: block;
+        padding: 15px 0; /* Vergrößert das Touch-Target auf ca. 48px Höhe */
+        width: 100%;
     }
     .menu-toggle {
         display: flex; /* Das Hamburger-Menü Icon einblenden */

@@ -303,6 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
     menuToggle?.addEventListener('click', () => {
         const isOpen = navLinks.classList.toggle('active');
         nav.classList.toggle('menu-open', isOpen);
+        menuToggle.setAttribute('aria-expanded', isOpen);
     });
 
     // Keyboard Support für Menu Toggle
@@ -317,6 +318,7 @@ document.addEventListener("DOMContentLoaded", () => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
             nav.classList.remove('menu-open');
+            menuToggle?.setAttribute('aria-expanded', 'false');
         });
     });
 
