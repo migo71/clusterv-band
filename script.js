@@ -128,7 +128,7 @@ async function loadGalerie() {
     container.innerHTML = `<div class="gallery-grid">
         ${images.map(img => `
             <div class="gallery-item" onclick="window.openImageModal('${img.src}')">
-                <img src="${img.src}" alt="${img.alt || 'Galeriebild'}" loading="lazy">
+                <img src="${img.src}" alt="${img.alt || 'Galeriebild'}" loading="lazy" onload="this.classList.add('loaded')">
             </div>`).join('')}
     </div>`;
     
