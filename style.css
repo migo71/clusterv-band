@@ -19,6 +19,7 @@ html {
     /* Verhindert, dass der fixed Header die Überschrift beim Scrollen überdeckt */
     scroll-padding-top: 70px; /* Reduziert, um exakter mit der Header-Höhe abzuschließen */
     scroll-behavior: smooth;
+    overflow-x: hidden; /* Verhindert horizontales Scrollen auf HTML-Ebene */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -516,6 +517,14 @@ section.active > .scroll-indicator {
 .press-card .quote { font-style: italic; margin-bottom: 15px; color: var(--text-light); }
 .press-card cite { display: block; font-size: 0.9rem; color: var(--accent-gold); font-weight: 600; }
 
+/* Responsiver Container für die Gig-Tabelle */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Sanftes Scrollen auf iOS */
+    margin-bottom: 1rem;
+}
+
 .gig-table { width: 100%; border-collapse: collapse; margin-top: 20px; text-align: left; }
 .gig-table th { color: var(--accent-gold); padding: 15px; border-bottom: 1px solid var(--accent-gold); }
 .gig-table td { padding: 15px; border-bottom: 1px solid var(--navy-border); }
@@ -558,6 +567,12 @@ footer { padding: 60px; text-align: center; color: var(--text-muted); font-size:
         width: calc(50% - var(--members-gap-mobile) / 2); 
         height: auto; 
         padding: 15px 10px; 
+    }
+    .hero-content h1 {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+        letter-spacing: 4px; /* Deutlich reduziert, damit das Wort nicht über den Rand ragt */
+        width: 100%;
+        word-wrap: break-word;
     }
     .member-photo { 
         position: static; 
