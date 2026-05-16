@@ -41,6 +41,13 @@ h1, h2 {
     text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+}
+
 header {
     background: transparent;
     padding: 30px 4%;
@@ -541,19 +548,27 @@ footer { padding: 60px; text-align: center; color: var(--text-muted); font-size:
     .nav-links li { 
         margin: 15px 0; 
     }
+    .menu-toggle {
+        display: flex; /* Das Hamburger-Menü Icon einblenden */
+    }
+    header {
+        padding: 15px 5%;
+        background: rgba(5, 10, 20, 0.95) !important; /* Header auf Mobile immer sichtbar machen */
+    }
     .container {
         padding: 40px 5%;
     }
 
     /* Diese Selektoren überschreiben die globalen ID-Styles (Spezifität) */
     #hero, #about, #video, #audio, #galerie, #gigs, #presse, #contact {
-        background-attachment: scroll; /* Wichtig für Mobile-Performance */
-        background-size: 100% auto; /* Erzwingt die volle Breite des Bildes */
-        background-position: top center; /* Bild klebt am oberen Rand */
+        background-attachment: scroll !important; 
+        background-size: 100% auto !important; /* Die volle Breite wird erzwungen */
+        background-position: center 60px !important; /* Schiebt das Bild unter den Header */
         background-repeat: no-repeat;
+        background-image: url('clusterv_band.webp') !important; /* Entfernt den dunklen Overlay auf Mobile */
         min-height: auto; /* Die Sektion passt sich nun dem Inhalt an */
         display: block; /* Hebt das Flex-Zentrieren auf, damit Text unter das Bild wandert */
-        padding-top: 60vw; /* Erzeugt Platz für das Bild (ca. 60% der Breite = Bildhöhe) */
+        padding-top: calc(70vw + 60px); /* Platz für Bild (proportional) + Header-Abstand */
         padding-bottom: 60px;
     }
 
