@@ -447,7 +447,7 @@ section.active > .scroll-indicator {
     border: 1px solid var(--accent-gold); /* Kräftigerer Rahmen für Platzhalter */
     aspect-ratio: 1 / 1;
     min-height: 150px; /* Fallback für Browser, die aspect-ratio nicht unterstützen */
-    background-color: #0d1b2e; /* Etwas helleres Navy, damit man die Boxen sieht */
+    background-color: rgba(10, 25, 47, 0.8); /* Deutlichere Box-Farbe */
     /* Dezent animierter Shimmer-Effekt für den Ladezustand */
     background-image: linear-gradient(
         90deg, 
@@ -473,7 +473,7 @@ section.active > .scroll-indicator {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) !important;
     color: var(--accent-gold);
     opacity: 0.8;
     font-size: 0.7rem;

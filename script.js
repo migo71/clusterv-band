@@ -120,19 +120,28 @@ async function loadGalerie() {
     const container = document.getElementById('content-galerie');
     if (!container) return;
 
-    if (!images || images.length === 0) {
-        container.innerHTML = '<p>Keine Bilder in der Galerie gefunden.</p>';
-        return;
-    }
+    if (images && images.length > 0) {
+        container.innerHTML = `<div class="gallery-grid">
+            ${images.map(img => `
+                <div class="gallery-item" onclick="window.openImageModal('${img.src}')">
+                    <img src="${img.src}" 
+                         alt="${img.alt || 'Galeriebild'}" 
+                         loading="lazy" 
+                         onload="this.classList.add('loaded')"
+                         onerror="this.style.display='none'">
+                </div>`).join('')}
+        </div>`;
+        
+        // Sofort prüfen, ob Bilder bereits aus dem Cache geladen wurden
+        container.querySelectorAll('img').forEach(img => {
+            if (img.complete) img.classList.add('loaded');
+        });
 
-    container.innerHTML = `<div class="gallery-grid">
-        ${images.map(img => `
-            <div class="gallery-item" onclick="window.openImageModal('${img.src}')">
-                <img src="${img.src}" alt="${img.alt || 'Galeriebild'}" loading="lazy" onload="this.classList.add('loaded')">
-            </div>`).join('')}
-    </div>`;
-    
-    container.classList.add('component-fade-in');
+        container.classList.add('component-fade-in');
+    } else {
+        console.warn('Galerie konnte nicht geladen werden oder ist leer. Platzhalter bleiben stehen.');
+        // Wir lassen die Platzhalter aus dem HTML stehen, statt sie durch Text zu ersetzen.
+    }
 }
 
 /**
@@ -203,7 +212,7 @@ function initScrollAnimations() {
                 revealObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
 
     // Separater Observer für Sektionen zur Steuerung der Nav-Links und Pfeile
     const sectionObserver = new IntersectionObserver((entries) => {
@@ -218,7 +227,7 @@ function initScrollAnimations() {
                 entry.target.classList.remove('active');
             }
         });
-    }, { threshold: 0.4 });
+    }, { threshold: 0.2 });
 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     document.querySelectorAll('section').forEach(section => sectionObserver.observe(section));
