@@ -316,7 +316,7 @@ section.active > .scroll-indicator {
     position: relative;
     cursor: pointer;
     z-index: 1;
-    overflow: hidden; /* Für moderne Hover-Effekte innerhalb des Rahmens */
+    /* overflow: hidden entfernt, damit das schwebende Foto außerhalb des Rahmens sichtbar ist */
     transition: all 0.3s ease;
 }
 
