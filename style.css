@@ -42,10 +42,13 @@ h1, h2 {
 }
 
 .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--accent-gold);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--accent-gold) !important; /* !important überschreibt das inline color:inherit aus dem HTML */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
 }
 
 header {
