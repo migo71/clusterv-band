@@ -523,9 +523,13 @@ footer { padding: 60px; text-align: center; color: var(--text-muted); font-size:
     /* Diese Selektoren überschreiben die globalen ID-Styles (Spezifität) */
     #hero, #about, #video, #audio, #galerie, #gigs, #presse, #contact {
         background-attachment: scroll; /* Wichtig für Mobile-Performance */
-        background-size: cover; /* Bild füllt die gesamte Fläche proportional aus */
-        background-position: center 25%; /* Zentriert horizontal, zeigt vertikal das obere Viertel (Köpfe) */
-        min-height: 100vh; /* Behält den Fullscreen-Look bei */
+        background-size: 100% auto; /* Erzwingt die volle Breite des Bildes */
+        background-position: top center; /* Bild klebt am oberen Rand */
+        background-repeat: no-repeat;
+        min-height: auto; /* Die Sektion passt sich nun dem Inhalt an */
+        display: block; /* Hebt das Flex-Zentrieren auf, damit Text unter das Bild wandert */
+        padding-top: 60vw; /* Erzeugt Platz für das Bild (ca. 60% der Breite = Bildhöhe) */
+        padding-bottom: 60px;
     }
 
     .audio-control { 
