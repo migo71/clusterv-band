@@ -14,7 +14,7 @@
     />
     <meta name="author" content="Cluster V" />
     <meta property="og:title" content="Cluster V | Jazz Band" />
-    <meta property="og:image" content="background/clusterv_band.webp" />
+    <meta property="og:image" content="background/quer.webp" />
     <meta property="og:url" content="https://www.clusterv.de" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="de_DE" />
@@ -23,7 +23,8 @@
     <meta name="theme-color" content="#050a14" />
     <link rel="canonical" href="https://www.clusterv.de" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="preload" as="image" href="background/clusterv_band.webp" />
+    <link rel="preload" as="image" href="background/quer.webp" />
+    <link rel="preload" as="image" href="background/hoch.webp" media="(max-width: 768px)" />
 
     <title>Cluster V | Jazz Band</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -50,6 +51,15 @@
     </script>
   </head>
   <body>
+    <div class="video-bg-container">
+      <video class="video-desktop" autoplay muted loop playsinline poster="background/quer.webp">
+        <source src="background/quer.webm" type="video/webm">
+      </video>
+      <video class="video-mobile" autoplay muted loop playsinline poster="background/hoch.webp">
+        <source src="background/hoch.webm" type="video/webm">
+      </video>
+    </div>
+
     <header>
       <nav>
         <a

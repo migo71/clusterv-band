@@ -267,20 +267,35 @@ section.active > .scroll-indicator {
     padding-top: 60px; /* Reduziert, damit die Überschrift weiter oben steht */
 }
 
+/* Video Hintergrund Setup */
+.video-bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background-color: var(--dark-blue);
+    overflow: hidden;
+}
+
+.video-bg-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-mobile { display: none; }
+
 /* Sektions-Hintergründe */
 /* Zentrale Steuerung des Band-Hintergrundbildes für alle Sektionen */
 #about, #video, #audio, #galerie, #gigs, #presse, #contact {
-    background-image: linear-gradient(var(--bg-overlay), var(--bg-overlay)), url('background/clusterv_band.webp');
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: var(--bg-overlay);
 }
 
 /* Hero-Sektion: Heller und klarer Fokus auf das Bild */
 #hero {
-    background-image: linear-gradient(rgba(5, 10, 20, 0.3), rgba(5, 10, 20, 0.3)), url('background/clusterv_band.webp');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: rgba(5, 10, 20, 0.3);
     padding-top: 18vh; /* Rückt den Text auf Desktop-Bildschirmen tiefer nach unten */
 }
 
@@ -642,9 +657,12 @@ footer { padding: 60px; text-align: center; color: var(--text-muted); font-size:
         padding-top: 80px; /* Etwas weniger Abstand auf Mobile für direkten Fokus */
     }
 
+    .video-desktop { display: none; }
+    .video-mobile { display: block; }
+
     #hero {
         /* Im Hero-Bereich auch mobil etwas heller bleiben */
-        background-image: linear-gradient(rgba(5, 10, 20, 0.2), rgba(5, 10, 20, 0.2)), url('background/clusterv_band.webp') !important;
+        background-color: rgba(5, 10, 20, 0.2) !important;
     }
 
     .audio-control { 
