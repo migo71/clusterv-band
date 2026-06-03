@@ -446,7 +446,20 @@ section.active > .scroll-indicator {
 .youtube-blocked #content-video { display: none; }
 
 .audio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-top: 30px; }
-.audio-item { border-radius: 4px; overflow: hidden; border: 1px solid rgba(197, 160, 89, 0.1); }
+.audio-item { 
+    border-radius: 4px; 
+    overflow: hidden; 
+    border: 1px solid rgba(197, 160, 89, 0.2); 
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.02);
+}
+.audio-title {
+    color: var(--accent-gold);
+    font-weight: 600;
+    margin-bottom: 12px;
+    text-align: left;
+    font-size: 1rem;
+}
 
 /* Galerie Styling */
 .gallery-grid {

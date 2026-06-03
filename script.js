@@ -104,6 +104,7 @@ async function loadAudio() {
     tracks.forEach(track => {
         html += `
             <div class="audio-item">
+                <div class="audio-title">${track.title}</div>
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" title="Audio Track: ${track.title}" allow="autoplay" loading="lazy" src="https://w.soundcloud.com/player/?url=${track.soundcloudPath}&color=%23c5a059&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
             </div>`;
     });
