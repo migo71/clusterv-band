@@ -79,9 +79,10 @@ async function loadVideos() {
         
         html += `
             <div class="media-item">
+                <div class="video-title">${video.title}</div>
                 <div class="video-container" title="Klicken zum Abspielen" 
                      onclick="this.innerHTML = '<iframe src=\\'${embedUrl}\\' title=\\'${video.title}\\' frameborder=\\'0\\' allow=\\'autoplay; fullscreen\\' allowfullscreen></iframe>'">
-                    <div class="video-placeholder">
+                    <div class="video-placeholder" style="background-image: linear-gradient(rgba(5, 10, 20, 0.6), rgba(5, 10, 20, 0.6)), url('${thumbUrl}')">
                         <span>${video.title}</span>
                     </div>
                 </div>
