@@ -24,7 +24,12 @@
     <link rel="canonical" href="https://www.clusterv.de" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="preload" as="image" href="background/quer.webp" />
-    <link rel="preload" as="image" href="background/hoch.webp" media="(max-width: 768px)" />
+    <link
+      rel="preload"
+      as="image"
+      href="background/hoch.webp"
+      media="(max-width: 768px)"
+    />
 
     <title>Cluster V | Jazz Band</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -52,11 +57,25 @@
   </head>
   <body>
     <div class="video-bg-container">
-      <video class="video-desktop" autoplay muted loop playsinline poster="background/quer.webp">
-        <source src="background/quer.webm" type="video/webm">
+      <video
+        class="video-desktop"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="background/quer.webp"
+      >
+        <source src="background/quer.webm" type="video/webm" />
       </video>
-      <video class="video-mobile" autoplay muted loop playsinline poster="background/hoch.webp">
-        <source src="background/hoch.webm" type="video/webm">
+      <video
+        class="video-mobile"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="background/hoch.webp"
+      >
+        <source src="background/hoch.webm" type="video/webm" />
       </video>
     </div>
 
@@ -81,6 +100,7 @@
         </div>
         <ul class="nav-links">
           <li><a href="#about">Band</a></li>
+          <li><a href="#aktuelles">Aktuelles</a></li>
           <li><a href="#video">Video</a></li>
           <li><a href="#audio">Audio</a></li>
           <li><a href="#galerie">Galerie</a></li>
@@ -183,6 +203,50 @@
       <div
         class="scroll-indicator up"
         data-target="hero"
+        aria-label="Nach oben scrollen"
+      >
+        <span></span>
+      </div>
+      <div
+        class="scroll-indicator"
+        data-target="video"
+        aria-label="Nach unten scrollen"
+      >
+        <span></span>
+      </div>
+    </section>
+
+    <section id="aktuelles" class="container fullscreen-section">
+      <h2>Aktuelles</h2>
+      <div class="section-content reveal">
+        <p>
+          Cluster V spielt am 25. Juli 2026 im Taeter Theater in Heidelberg.
+        </p>
+        <div class="aktuelles-image-wrapper">
+          <img
+            src="Taeter_202607_Plakat.jpg"
+            alt="Cluster V im Taeter Theater Heidelberg 25. Juli 2026"
+            loading="lazy"
+          />
+        </div>
+        <div class="aktuelles-links">
+          <a
+            href="https://www.taeter-theater.de/gastspiele/cluster-v/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Zur Veranstaltung</a
+          >
+          <a
+            href="https://www.taeter-theater.de/info/online-reservieren/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Tickets reservieren</a
+          >
+        </div>
+      </div>
+      <div
+        class="scroll-indicator up"
+        data-target="about"
         aria-label="Nach oben scrollen"
       >
         <span></span>
