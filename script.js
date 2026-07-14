@@ -37,6 +37,58 @@ async function loadBand() {
 }
 
 /**
+ * Lädt die Laufschrift aus JSON und rendert sie nur, wenn Text vorhanden ist.
+ */
+async function loadLauftext() {
+    const container = document.getElementById('lauftext-container');
+    if (!container) return;
+
+    const data = await fetchJSON('lauftext.json');
+    const text = typeof data === 'string'
+        ? data
+        : data && typeof data.text === 'string'
+            ? data.text
+            : '';
+    const link = data && typeof data.link === 'string' ? data.link.trim() : '';
+    const cleanedText = text.trim();
+
+    if (!cleanedText) {
+        container.innerHTML = '';
+        container.hidden = true;
+        return;
+    }
+
+    container.hidden = false;
+    container.innerHTML = '';
+
+    const marquee = document.createElement('div');
+    marquee.className = 'hero-marquee';
+
+    const createItem = (contentText) => {
+        const item = document.createElement(link ? 'a' : 'span');
+        item.textContent = contentText;
+
+        if (link) {
+            item.href = link;
+            item.classList.add('hero-marquee-link');
+            const isExternal = /^(https?:)?\/\//i.test(link) || /^mailto:/i.test(link);
+            if (isExternal) {
+                item.target = '_blank';
+                item.rel = 'noopener noreferrer';
+            }
+        }
+
+        return item;
+    };
+
+    const firstItem = createItem(cleanedText);
+    const secondItem = createItem(cleanedText);
+
+    marquee.append(firstItem, secondItem);
+    container.appendChild(marquee);
+}
+
+/**
  * Lädt Termine aus JSON und baut die Tabelle dynamisch
  */
 async function loadGigs() {
@@ -286,6 +338,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Warte, bis alle Inhalte geladen sind, bevor Animationen/Logik starten
     Promise.all([
         loadBand(),
+        loadLauftext(),
         loadGigs(),
         loadVideos(),
         loadAudio(),

@@ -170,6 +170,48 @@ nav {
     text-transform: uppercase;
 }
 
+.hero-marquee-wrapper {
+    width: min(90vw, 820px);
+    margin: 100px auto 0;
+    overflow: hidden;
+    border: 1px solid rgba(197, 160, 89, 0.35);
+    background: rgba(5, 10, 20, 0.65);
+    backdrop-filter: blur(8px);
+    border-radius: 999px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+}
+
+.hero-marquee {
+    display: flex;
+    width: max-content;
+    white-space: nowrap;
+    animation: hero-marquee 16s linear infinite;
+    padding: 10px 24px;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent-gold-bright);
+}
+
+.hero-marquee span,
+.hero-marquee a {
+    padding-right: 3rem;
+}
+
+.hero-marquee a {
+    color: var(--accent-gold-bright);
+    text-decoration: none;
+}
+
+.hero-marquee a:hover {
+    color: var(--text-green);
+}
+
+@keyframes hero-marquee {
+    from { transform: translateX(10%); }
+    to { transform: translateX(-50%); }
+}
+
 /* Sanftes Einblenden für dynamische Inhalte */
 .component-fade-in {
     animation: fadeIn 0.5s ease-in forwards;
