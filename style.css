@@ -642,7 +642,7 @@ section.active > .scroll-indicator {
 .gig-table { width: 100%; border-collapse: collapse; margin-top: 20px; text-align: left; }
 .gig-table th { color: var(--accent-gold); padding: 15px; border-bottom: 1px solid var(--accent-gold); }
 .gig-table td { padding: 15px; border-bottom: 1px solid var(--navy-border); }
-.past-gig { opacity: 0.3; filter: grayscale(1); font-size: 0.9em; }
+.past-gig { opacity: 0.6; filter: grayscale(1); font-size: 0.9em; }
 
 /* Modal: Fullscreen Overlay für Bilder */
 .modal {
