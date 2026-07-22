@@ -402,6 +402,87 @@
         <a href="mailto:clusterV.band@gmail.com" class="btn"
           >clusterV.band@gmail.com</a
         >
+        <p style="margin-top: 2rem">
+          Du möchstest unseren Newsletter bekommen?
+        </p>
+        <form id="newsletter-form" style="margin-top: 1rem; max-width: 420px">
+          <input
+            type="email"
+            id="newsletter-email"
+            name="email"
+            placeholder="Deine E-Mail-Adresse"
+            required
+            style="
+              width: 100%;
+              padding: 0.8rem 1rem;
+              margin-bottom: 0.75rem;
+              border: 1px solid rgba(255, 255, 255, 0.3);
+              border-radius: 999px;
+              background: rgba(255, 255, 255, 0.08);
+              color: #fff;
+            "
+          />
+          <button
+            type="submit"
+            class="btn"
+            style="
+              background: transparent;
+              border: 1px solid rgba(197, 160, 89, 0.45);
+              color: #e0c08d;
+              padding: 0.8rem 1.2rem;
+              border-radius: 999px;
+              font-family: &quot;Montserrat&quot;, sans-serif;
+              font-weight: 600;
+              letter-spacing: 0.08em;
+              text-transform: uppercase;
+              cursor: pointer;
+              transition:
+                background-color 0.3s ease,
+                border-color 0.3s ease,
+                color 0.3s ease;
+              margin-top: -0.25rem;
+            "
+          >
+            Abonnieren
+          </button>
+          <p id="newsletter-msg" style="margin-top: 0.75rem"></p>
+        </form>
+
+        <script>
+          const scriptURL =
+            "https://script.google.com/macros/s/AKfycbxkOgdwFdLzbDnGd4kjivx5et16uqN3whPugZQFk0JMmfsQUpShvByFG1JbeYINt9E/exec";
+          const form = document.getElementById("newsletter-form");
+          const msg = document.getElementById("newsletter-msg");
+
+          if (form && msg) {
+            form.addEventListener("submit", (e) => {
+              e.preventDefault();
+              msg.textContent = "Wird angemeldet...";
+
+              if (
+                !scriptURL ||
+                scriptURL.includes("HIER_DEINE_GOOGLE_WEB_APP_URL")
+              ) {
+                msg.textContent = "Bitte trage die Google Web App URL ein.";
+                return;
+              }
+
+              fetch(scriptURL, {
+                method: "POST",
+                body: new URLSearchParams(new FormData(form)),
+                mode: "no-cors",
+              })
+                .then(() => {
+                  msg.textContent = "Vielen Dank für deine Anmeldung!";
+                  form.reset();
+                })
+                .catch(() => {
+                  msg.textContent =
+                    "Fehler bei der Anmeldung. Bitte versuche es später noch einmal.";
+                });
+            });
+          }
+        </script>
       </div>
       <div
         class="scroll-indicator up"
