@@ -125,7 +125,7 @@ async function loadVideos() {
 
     let html = '<div class="media-grid">';
     videos.forEach(video => {
-        const embedUrl = `https://www.youtube.com/embed/${video.youtubeId}?autoplay=1`;
+        const embedUrl = `https://www.youtube-nocookie.com/embed/${video.youtubeId}?autoplay=1`;
         // YouTube Thumbnail-URL (hqdefault ist ein guter Kompromiss aus Qualität und Speed)
         const thumbUrl = `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`;
         
