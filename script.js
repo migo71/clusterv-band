@@ -126,13 +126,13 @@ async function loadVideos() {
     let html = '<div class="media-grid">';
     videos.forEach(video => {
         const embedUrl = `https://www.youtube-nocookie.com/embed/${video.youtubeId}?autoplay=1`;
-        // YouTube Thumbnail-URL (hqdefault ist ein guter Kompromiss aus Qualität und Speed)
-        const thumbUrl = `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`;
+        // Lokales Thumbnail für DSGVO-Konformität (kein Verbindungsaufbau zu Google vor Klick)
+        const thumbUrl = `thumbnails/${video.youtubeId}.jpg`;
         
         html += `
             <div class="media-item">
                 <div class="video-title">${video.title}</div>
-                <div class="video-container" title="Klicken zum Abspielen" 
+                <div class="video-container" title="Klicken zum Abspielen (lädt YouTube-Video)" 
                      onclick="this.innerHTML = '<iframe src=\\'${embedUrl}\\' title=\\'${video.title}\\' frameborder=\\'0\\' allow=\\'autoplay; fullscreen\\' allowfullscreen></iframe>'">
                     <div class="video-placeholder" style="background-image: linear-gradient(rgba(5, 10, 20, 0.6), rgba(5, 10, 20, 0.6)), url('${thumbUrl}')">
                         <span>${video.title}</span>
@@ -146,25 +146,53 @@ async function loadVideos() {
 }
 
 /**
- * Lädt Audio-Tracks aus JSON und baut das Grid dynamisch
+ * Lädt Audio-Tracks aus JSON und baut das Grid dynamisch (DSGVO 2-Klick-Lösung)
  */
 async function loadAudio() {
     const tracks = await fetchJSON('audio.json');
     const container = document.getElementById('content-audio');
     if (!tracks || !container) return;
 
+    // Tracks für dynamisches 2-Klick-Laden hinterlegen
+    window.cvAudioTracks = tracks;
+
     let html = '<div class="audio-grid">';
-    tracks.forEach(track => {
+    tracks.forEach((track, index) => {
         html += `
             <div class="audio-item">
                 <div class="audio-title">${track.title}</div>
-                <iframe width="100%" height="166" scrolling="no" frameborder="no" title="Audio Track: ${track.title}" allow="autoplay" loading="lazy" src="https://w.soundcloud.com/player/?url=${track.soundcloudPath}&color=%23c5a059&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                <div class="audio-container" id="audio-container-${index}">
+                    <div class="audio-placeholder" 
+                         role="button" 
+                         tabindex="0" 
+                         title="${track.title} abspielen (lädt SoundCloud-Player)"
+                         onclick="window.loadSoundcloud(${index})"
+                         onkeydown="if(event.key==='Enter'||event.key===' ')window.loadSoundcloud(${index})">
+                        <span class="audio-play-icon">▶</span>
+                        <span class="audio-notice">SoundCloud Player laden</span>
+                        <small class="audio-subtext">(Überträgt Daten an SoundCloud)</small>
+                    </div>
+                </div>
             </div>`;
     });
     html += '</div>';
     container.innerHTML = html;
     container.classList.add('component-fade-in');
 }
+
+/**
+ * 2-Klick-Aktivierung: Ersetzt den Platzhalter durch das SoundCloud-Iframe mit Autoplay
+ */
+function loadSoundcloud(index) {
+    if (!window.cvAudioTracks || !window.cvAudioTracks[index]) return;
+    const track = window.cvAudioTracks[index];
+    const container = document.getElementById(`audio-container-${index}`);
+    if (!container) return;
+
+    const iframeUrl = `https://w.soundcloud.com/player/?url=${track.soundcloudPath}&color=%23c5a059&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`;
+    container.innerHTML = `<iframe width="100%" height="166" scrolling="no" frameborder="no" title="Audio Track: ${track.title}" allow="autoplay" src="${iframeUrl}"></iframe>`;
+}
+window.loadSoundcloud = loadSoundcloud;
 
 /**
  * Lädt Galerie-Bilder aus JSON

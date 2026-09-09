@@ -579,6 +579,59 @@ section.active > .scroll-indicator {
     font-size: 1rem;
 }
 
+.audio-container {
+    position: relative;
+    min-height: 166px;
+    background-color: var(--navy-medium);
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.audio-placeholder {
+    width: 100%;
+    min-height: 166px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    cursor: pointer;
+    background: linear-gradient(135deg, rgba(10, 25, 47, 0.85), rgba(5, 10, 20, 0.95));
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.audio-placeholder:hover, .audio-placeholder:focus {
+    background: linear-gradient(135deg, rgba(10, 25, 47, 0.95), rgba(197, 160, 89, 0.2));
+    outline: none;
+}
+
+.audio-play-icon {
+    font-size: 2.2rem;
+    color: var(--accent-gold-bright);
+    margin-bottom: 8px;
+    transition: transform 0.3s ease;
+}
+
+.audio-placeholder:hover .audio-play-icon, .audio-placeholder:focus .audio-play-icon {
+    transform: scale(1.18);
+    color: var(--text-green);
+}
+
+.audio-notice {
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+}
+
+.audio-subtext {
+    color: var(--accent-gold);
+    font-size: 0.75rem;
+    opacity: 0.85;
+}
+
 /* Galerie Styling */
 .gallery-grid {
     display: grid;
